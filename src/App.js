@@ -35,7 +35,8 @@ function Home(props) {
     let navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('https://everyarchive.com/checkAuth')
+        // axios.get('https://everyarchive.com/checkAuth')
+        axios.get('https://172.31.15.45:8080/checkAuth')
             .then((res) => {
                 console.log("data & bool : " + res.data, res.data === false);
                 props.setAuth(res.data);
@@ -146,7 +147,7 @@ function Login() {
                     <button id="kakao-login-btn" className="custom-btn" style={{width: '200px'}}
                             onClick={() => {
                                 // 로그인 ajax
-                                axios.get('https://everyarchive.com/getOAuthParam')
+                                axios.get('https://172.31.15.45:8080/getOAuthParam')
                                     .then((res) => {
                                         console.log(res.data);
                                         let restapikey = res.data.restapikey;
