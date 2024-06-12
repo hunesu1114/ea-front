@@ -28,7 +28,7 @@ function Links(props) {
     let dispatch = useDispatch();
 
     useEffect(() => {
-        axios.get('http://172.31.15.45:8080/linkArchive/getLinks')
+        axios.get('https://everyarchive.com/linkArchive/getLinks')
         // axios.get('http://localhost:8080/linkArchive/getLinks')
             .then((res) => {
                 dispatch(setLinks(res.data));
