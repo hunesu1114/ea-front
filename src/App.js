@@ -43,8 +43,8 @@ function Home(props) {
             })
     }, [props.auth])
 
-    // if (props.auth === true) {
-    if (props.auth === false) {
+    if (props.auth === true) {
+    // if (props.auth === false) {
         return (
             <div className="container-div">
                 <h1 className="page-title" style={{marginTop: '50px'}}
