@@ -2,13 +2,12 @@ import {createSlice} from "@reduxjs/toolkit";
 
 let memoDisplay=createSlice({
     name:'memoDisplay',
-    initialState:[],
+    initialState:[{'id':null, 'display': false}],
     reducers:{
         setMemoDisplayInit(state) {
             return [{'id':null, 'display': false}];
         },
         toggleMemoDisplay(state, id) {
-            console.log("=========");
             let workDone=false
             state.map((elt)=>{
                 if (elt.id === id.payload) {

@@ -2,27 +2,25 @@ import {createSlice} from "@reduxjs/toolkit";
 
 let memoData=createSlice({
     name: 'memoData',
-    initialState: {'id':null,'title': null, 'content': null, 'writeStatus': false},
+    initialState: {'id':null,'title': null, 'content': null,'addNewMemo':false},
     reducers: {
-
-
-        /*linkDataStateInit(state) {
-            return {'id': null, 'category': 'mail', 'description': null, 'url': null};
+        setMemoDataInit(state) {
+            return {'id':null,'title': null, 'content': null,'addNewMemo':false}
         },
-        setLinkDataId(state,id) {
-            state.id = id.payload;
+        setMemoAddNewMemo(state, param) {
+            state.addNewMemo = param.payload;
         },
-        setLinkDataCategory(state, category) {
-            state.category = category.payload;
+        setMemoDataId(state,param) {
+            state.id = param.payload;
         },
-        setLinkDataDescription(state, description) {
-            state.description = description.payload;
+        setMemoDataTitle(state, param) {
+            state.title = param.payload;
         },
-        setLinkDataUrl(state, url) {
-            state.url = url.payload;
-        },*/
+        setMemoDataContent(state, param) {
+            state.content = param.payload;
+        },
     }
 })
-export let {} = memoData.actions;
+export let {setMemoDataInit,setMemoDataId,setMemoDataTitle,setMemoDataContent,setMemoAddNewMemo} = memoData.actions;
 
 export default memoData;
