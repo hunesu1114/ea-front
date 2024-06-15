@@ -10,6 +10,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import {useQuery} from "@tanstack/react-query";
 import data from "bootstrap/js/src/dom/data";
 import async from "async";
+import Memo from "./routes/Memo";
 
 function App() {
 
@@ -21,8 +22,8 @@ function App() {
                 <Route path="/" element={<Home auth={auth} setAuth={setAuth}/>}/>
                 <Route path="/links" element={<Links/>}/>
                 <Route path="/login" element={<Login/>}/>
+                <Route path="/memo" element={<Memo/>}/>
 
-                {/*<Route path="/memo" element={}/>*/}
                 {/*<Route path="/data" element={}/>*/}
                 {/*<Route path="/announcement" element={}/>*/}
                 {/*<Route path="/logout" element={}/>*/}
@@ -43,8 +44,8 @@ function Home(props) {
             })
     }, [props.auth])
 
-    if (props.auth === true) {
-    // if (props.auth === false) {
+    // if (props.auth === true) {
+    if (props.auth === false) {
         return (
             <div className="container-div">
                 <h1 className="page-title" style={{marginTop: '50px'}}
@@ -64,6 +65,9 @@ function Home(props) {
                     <div className="d-flex justify-content-center">
                         <button id="memo-archive-btn" className="custom-btn main-btn"
                                 style={{width: '200px'}}
+                                onClick={()=>{
+                                    navigate("/memo")
+                                }}
                         >Memo Archive
                         </button>
                     </div>
