@@ -5,6 +5,7 @@ import links from "./store/linksSlice";
 import memo from "./store/memoSlice";
 import memoData from "./store/memoDataSlice";
 import memoDisplay from "./store/memoDisplaySlice";
+import announcement from "./store/announcementSlice";
 
 export default configureStore({
     reducer: {
@@ -14,5 +15,6 @@ export default configureStore({
         memo:memo.reducer,
         memoDisplay: memoDisplay.reducer,
         memoData:memoData.reducer,
+        announcement:announcement.reducer
     }
 })

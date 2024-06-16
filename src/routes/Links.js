@@ -28,8 +28,8 @@ function Links(props) {
     let dispatch = useDispatch();
 
     useEffect(() => {
-        axios.get('https://everyarchive.com/linkArchive/getLinks')
-        // axios.get('http://localhost:8080/linkArchive/getLinks')
+        // axios.get('https://everyarchive.com/linkArchive/getLinks')
+        axios.get('http://localhost:8080/linkArchive/getLinks')
             .then((res) => {
                 dispatch(setLinks(res.data));
             })

@@ -11,6 +11,11 @@ import {useQuery} from "@tanstack/react-query";
 import data from "bootstrap/js/src/dom/data";
 import async from "async";
 import Memo from "./routes/Memo";
+import Announcement from "./routes/Announcement";
+import Data from "./routes/Data";
+import Files from "./routes/Files";
+import Photo from "./routes/Photo";
+import Video from "./routes/Video";
 
 function App() {
 
@@ -23,10 +28,11 @@ function App() {
                 <Route path="/links" element={<Links/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/memo" element={<Memo/>}/>
-
-                {/*<Route path="/data" element={}/>*/}
-                {/*<Route path="/announcement" element={}/>*/}
-                {/*<Route path="/logout" element={}/>*/}
+                <Route path="/data" element={<Data/>}/>
+                <Route path="/data/files" element={<Files/>}/>
+                <Route path="/data/photo" element={<Photo/>}/>
+                <Route path="/data/video" element={<Video/>}/>
+                <Route path="/announcement" element={<Announcement/>}/>
             </Routes>
         </div>
     );
@@ -65,7 +71,7 @@ function Home(props) {
                     <div className="d-flex justify-content-center">
                         <button id="memo-archive-btn" className="custom-btn main-btn"
                                 style={{width: '200px'}}
-                                onClick={()=>{
+                                onClick={() => {
                                     navigate("/memo")
                                 }}
                         >Memo Archive
@@ -74,19 +80,37 @@ function Home(props) {
                     <div className="d-flex justify-content-center">
                         <button id="data-archive-btn" className="custom-btn main-btn"
                                 style={{width: '200px'}}
+                                onClick={()=>{
+                                    navigate('/data');
+                                }}
                         >Data Archive
                         </button>
                     </div>
 
                     <div className="d-flex justify-content-center">
                         <button id="chat-btn" className="custom-btn main-btn" style={{width: '200px'}}
+                                onClick={() => {
+                                    navigate('/announcement')
+                                }}
                         >Announcement
                         </button>
                     </div>
 
                     <div className="d-flex justify-content-center">
                         <button id="logout-btn" className="custom-btn main-btn"
-                                style={{width: '200px'}}>Logout
+                                style={{width: '200px'}}
+                                onClick={()=>{
+                                    // axios.post('https://everyarchive.com/logout/custom')
+                                    axios.post('http://localhost:8080/logout/custom')
+                                        .then(function (res) {
+                                            if (res.data === 'ok') {
+                                                alert('로그아웃 되었습니다.');
+                                                navigate('/')
+                                            } else {
+                                                alert('로그아웃 실패');
+                                            }
+                                        });
+                                }}>Logout
                         </button>
                     </div>
                 </div>
